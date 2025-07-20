@@ -1,1 +1,26 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: "Satoshi";
+  src: url(/fonts/Satoshi-Regular.woff2);
+}
+
+body {
+  background:
+    repeating-linear-gradient(
+      to right,
+      transparent 0px,
+      transparent 39px,
+      rgba(255, 255, 255, 0.05) 40px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 39px,
+      rgba(255, 255, 255, 0.05) 40px
+    ),
+    linear-gradient(140deg, rgb(5, 0, 20), rgb(0, 30, 60));
+  background-attachment: fixed;
+  color: white;
+  font-family: "Satoshi", sans-serif;
+}

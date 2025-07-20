@@ -1,0 +1,25 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+
+// Genera las rutas estáticas
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+// Props del post
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<Layout>
+  <article>
+    <h1>{post.data.title}</h1>
+    <p>Publicado el: {post.data.pubDate.toLocaleDateString()}</p>
+    <Content />
+  </article>
+</Layout>
